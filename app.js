@@ -1,16 +1,6 @@
-console.log('hello')
 // APP
 // Display a Timer
 // Shows an animated border around the timer
-
-// Pseudo Code
-// Event Listener to watch for a click on the start button
-// Draw a full border around the timer
-// Start counting down the timer
-// Each time the timer counts down, update the border
-// Each time the timer counts down, update the text
-// If we counted down and timer reaches 0 Reset the border
-// Reset internal timer to get ready for another run
 
 // Event listener to watch for a click on start button
 // Emit an event starting that the timer as started (Watch
@@ -30,3 +20,32 @@ console.log('hello')
 // Pause()
 // onDurationChange()
 // tick()
+
+class Timer {
+  constructor(durationInput, startButton, pauseButton) {
+    this.durationInput = durationInput
+    this.startButton = startButton
+    this.pauseButton = pauseButton
+
+    this.startButton.addEventListener('click', this.start)
+    this.pauseButton.addEventListener('click', this.pause)
+  }
+  start = () => {
+    this.tick()
+    // SetInterval gives us back the timer id.
+    // We use this timer id to pause the timer with clearInterval
+    this.interval = setInterval(this.tick, 1000)
+  }
+  tick = () => {
+    console.log('tick')
+  }
+  pause = () => {
+    clearInterval(this.interval)
+  }
+}
+
+const durationInput = document.querySelector('#duration')
+const startButton = document.querySelector('#start')
+const pauseButton = document.querySelector('#pause')
+
+const timer = new Timer(durationInput, startButton, pauseButton)
