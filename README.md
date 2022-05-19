@@ -1,15 +1,10 @@
 # Timer
 
-Simple overview of use/purpose.
+Basic Timer 
 
 ## Simple Timer
 
-This app lets a user input a set amount of time. 
-
-## Version History
-
-* 1
-    * Initial Release
+This app lets a user make their own timer. You can input a time in seconds, start and pause the timer . 
 
 ## CDNS
 
